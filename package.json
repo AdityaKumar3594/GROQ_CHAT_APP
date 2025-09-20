@@ -2,11 +2,13 @@
   "name": "chat_app",
   "module": "index.ts",
   "type": "module",
-  "private": true,"scripts": {
+  "private": true,
+  "scripts": {
     "dev": "bun run index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/node": "^24.5.2",
     "concurrently": "^9.2.1"
   },
   "peerDependencies": {
