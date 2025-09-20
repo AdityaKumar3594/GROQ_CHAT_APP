@@ -1,18 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "packages/client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "packages/client/dist/$1"
-    }
-  ]
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "installCommand": "bun install"
 }

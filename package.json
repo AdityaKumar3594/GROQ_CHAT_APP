@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd packages/server && npm run dev",
     "dev:client": "cd packages/client && npm run dev",
-    "build": "echo 'Build handled by Vercel'",
+    "build": "node build.js",
     "format": "prettier --write .",
     "prepare": "husky"
   },
