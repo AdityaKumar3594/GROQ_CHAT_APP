@@ -1,21 +1,12 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "packages/server/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["packages/server/**"]
-      }
-    },
-    {
-      "src": "packages/client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "packages/client/dist"
-      }
+  "buildCommand": "npm run build",
+  "outputDirectory": "packages/client/dist",
+  "functions": {
+    "packages/server/index.ts": {
+      "runtime": "@vercel/node@3"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
@@ -25,8 +16,5 @@
       "src": "/(.*)",
       "dest": "packages/client/dist/$1"
     }
-  ],
-  "env": {
-    "GROQ_API_KEY": "@groq_api_key"
-  }
+  ]
 }
