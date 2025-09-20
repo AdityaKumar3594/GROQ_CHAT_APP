@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd packages/server && npm run dev",
     "dev:client": "cd packages/client && npm run dev",
-    "build": "cd packages/client && bun run build",
+    "build": "cd packages/client && bun run build && cd ../.. && node scripts/copy-dist.js",
     "format": "prettier --write .",
     "prepare": "husky"
   },
