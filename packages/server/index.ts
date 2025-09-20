@@ -136,13 +136,19 @@ app.use((_req: Request, res: Response) => {
   res.status(404).json({ error: 'Endpoint not found' });
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Server is running at http://localhost:${port}`);
-  console.log(`📊 Health check: http://localhost:${port}/api/health`);
+// For Vercel deployment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`🚀 Server is running at http://localhost:${port}`);
+    console.log(`📊 Health check: http://localhost:${port}/api/health`);
 
-  if (!process.env.GROQ_API_KEY) {
-    console.warn(
-      '⚠️  Warning: GROQ_API_KEY not found in environment variables'
-    );
-  }
-});
+    if (!process.env.GROQ_API_KEY) {
+      console.warn(
+        '⚠️  Warning: GROQ_API_KEY not found in environment variables'
+      );
+    }
+  });
+}
+
+// Export for Vercel
+export default app;
