@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run index.ts",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd packages/server && npm run dev",
+    "dev:client": "cd packages/client && npm run dev",
     "format": "prettier --write .",
     "prepare": "husky"
   },
@@ -21,5 +23,9 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5"
+  }
 }
